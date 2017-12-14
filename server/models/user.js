@@ -1,23 +1,9 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-as-promised');
 var UserSchema = mongoose.Schema({
-	name: String,
-	email: {type: String, unique:true},
-	password: {type: String},
-	dob: {
-		type: Date,
-		validate:[{
-				validator: function(date){
-					var start = new Date('1/1/1990');
-					var end = new Date('12/31/1999');
-					console.log(start);
-					console.log(end);
-					return date > start && date<end;
-				},
-				message: "you were not born in the 90s"
-			}
-		]
-	}
+	name: {type:String, minlength:4},
+	email: {type: String, unique:true, required:true},
+	password: {type: String, minlength:8},
 }, {timestamps: true});
 
 UserSchema.pre('save', function(next){

@@ -1,0 +1,15 @@
+<h2>Register a new user:</h2>
+<form (submit)="register()">
+	<p>Name: <input type="text" name="name" [(ngModel)]="newUser.name" #name="ngModel"></p>
+	<p>Email: <input type="text" name="email" [(ngModel)]="newUser.email" #email="ngModel"></p>
+	<p>Password: <input type="password" name="password" [(ngModel)]="newUser.password" #password="ngModel"></p>
+	<p>Password Confirmation: <input type="password" name="password" [(ngModel)]="newUser.passwordConfirm" #passwordConfirm="ngModel"></p>
+	<input type="submit" name="">
+</form>
+
+<h2>Login an existing user:</h2>
+<form (submit)="login()">
+	<p>Email: <input type="text" name="email" [(ngModel)]="user.email" #email="ngModel"></p>
+	<p>Password: <input type="password" name="password" [(ngModel)]="user.password" #password="ngModel"></p>
+	<input type="submit" name="">
+</form>

@@ -6,11 +6,9 @@ var path = require('path');
 var app = express();
 
 // set up express
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(session({secret: "SuperduperSecret"}));
-
+app.use(express.static(path.join(__dirname, 'public', 'dist')));
 require('./server/config/mongoose.js');
 
 // set up routes
